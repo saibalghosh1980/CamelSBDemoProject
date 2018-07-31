@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: CAMEL-SB-DEMO
+server:
+  port: 8080
+eureka:
+  client:
+    enabled: false 
+security:
+  basic:
+    enabled: false
+management:
+  security:
+    enabled: false
+---
+spring:
+  profiles: dev
+eureka:
+  client:
+    enabled: true
+    service-url:  
+      defaultZone: http://dev-oupeureka:8761/eureka/
+  instance:
+    prefer-ip-address: true
+---
+spring:
+  profiles: uat
+eureka:
+  client:
+    enabled: true
+    service-url:  
+      defaultZone: http://uat-oupeureka:8761/eureka/
+  instance:
+    prefer-ip-address: true
+---
+spring:
+  profiles: prod
+eureka:
+  client:
+    enabled: true
+    service-url:  
+      defaultZone: http://prod-oupeureka:8761/eureka/
+  instance:
+    prefer-ip-address: true
